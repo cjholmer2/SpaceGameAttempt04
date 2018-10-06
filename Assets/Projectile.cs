@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour 
 {
 	private Rigidbody2D rb;
+    public static float damage;
 	public float speed = 1;
 
 	// Use this for initialization
@@ -18,8 +19,8 @@ public class Projectile : MonoBehaviour
 	{
 		if(other.tag == "Enemy")
         {
+            other.gameObject.SendMessage("TakeDamage", damage);
             Destroy(gameObject);
-            Destroy(other.gameObject);
         }
         else if(other.tag == "Obstacle")
         {

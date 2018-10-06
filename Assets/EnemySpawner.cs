@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GM");
-        GM.numberOfEnemies = numberOfEnemies;
+        GM.numberOfEnemies += numberOfEnemies;
         gm.SendMessage("UpdateEnemies");
     }
 
@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
         }
 	}
 
-    public void SetActivetate(bool active)
+    public void SetActiveState(bool active)
     {
         spawnActive = active;
     }

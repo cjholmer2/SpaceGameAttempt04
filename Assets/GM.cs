@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GM : MonoBehaviour
 {
-    public static int numberOfEnemies = 5;
+    public static int numberOfEnemies = 0;
     public Text numberOfEnemiesText;
 
     // Use this for initialization

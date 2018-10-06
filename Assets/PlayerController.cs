@@ -5,13 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour 
 {
 	private Rigidbody2D rb;
+    private SpriteRenderer sr;
+    public float health = 100;
+    public float damage = 10;
 	public float speed = 1;
 	public GameObject projectile;
-	
-	// Use this for initialization
-	void Start () 
+    public float flashTime = 0.1f;
+    public Color flashColor = Color.red;
+
+    // Use this for initialization
+    void Start () 
 	{
 		rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
 	}
 	
 	// Update is called once per frame
@@ -56,5 +62,42 @@ public class PlayerController : MonoBehaviour
 		}
 		
 		rb.velocity = transform.up * speed;
+    }
+
+    public void IncreaseDamage(float amount)
+    {
+        damage += amount;
+    }
+
+    public void TakeDamage(float amount)
+    {
+        StartCoroutine("DamageFlash");
+        health -= amount;
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Debug.Log("nothin");
+    }
+
+
+    /// <summary>
+    /// A flash effect for the controller's sprite renderer, typically called by TakeDamage().
+    /// The controller's sprite renderer color will have changed back and forth between colors very quickly.
+    /// </summary>
+    /// <returns>I really wish I knew</returns>
+    public IEnumerator DamageFlash()
+    {
+        sr.color = flashColor;
+        yield return new WaitForSeconds(flashTime);
+        sr.color = Color.white;
+        yield return new WaitForSeconds(flashTime);
+        sr.color = flashColor;
+        yield return new WaitForSeconds(flashTime);
+        sr.color = Color.white;
     }
 }
