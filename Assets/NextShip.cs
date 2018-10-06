@@ -25,6 +25,7 @@ public class NextShip : MonoBehaviour
     public void Next()
 	{
 		index++;
-		player.GetComponent<SpriteRenderer>().sprite = shipSprites[index % shipSprites.Length];
+        index %= shipSprites.Length;
+		player.GetComponent<SpriteRenderer>().sprite = shipSprites[index];
 	}
 }
