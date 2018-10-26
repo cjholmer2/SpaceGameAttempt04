@@ -12,12 +12,18 @@ public class PlayerController : MonoBehaviour
 	public GameObject projectile;
     public float flashTime = 0.1f;
     public Color flashColor = Color.red;
+    public int cash = 1000;
 
     // Use this for initialization
     void Start () 
 	{
 		rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        if(GM.playerShip != null)
+        {
+            sr.sprite = GM.playerShip;
+        }
+        GM.playerCash = cash;
 	}
 	
 	// Update is called once per frame
@@ -62,6 +68,12 @@ public class PlayerController : MonoBehaviour
 		}
 		
 		rb.velocity = transform.up * speed;
+    }
+
+    public void SetSprite(Sprite newSprite)
+    {
+        sr.sprite = newSprite;
+        GM.playerShip = newSprite;
     }
 
     public void IncreaseDamage(float amount)

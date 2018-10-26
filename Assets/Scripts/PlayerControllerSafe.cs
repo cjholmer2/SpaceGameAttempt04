@@ -11,13 +11,19 @@ public class PlayerControllerSafe : MonoBehaviour
 	public float speed = 1;
     public float flashTime = 0.1f;
     public Color flashColor = Color.red;
+    public int cash = 1000;
 
     // Use this for initialization
     void Start () 
 	{
 		rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-	}
+        if (GM.playerShip != null)
+        {
+            sr.sprite = GM.playerShip;
+        }
+        GM.playerCash = cash;
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -39,6 +45,7 @@ public class PlayerControllerSafe : MonoBehaviour
         }
 		if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
 		{
+            //no shooting in safe
 		}
 		
 	}
@@ -60,6 +67,12 @@ public class PlayerControllerSafe : MonoBehaviour
 		}
 		
 		rb.velocity = transform.up * speed;
+    }
+
+    public void SetSprite(Sprite newSprite)
+    {
+        sr.sprite = newSprite;
+        GM.playerShip = newSprite;
     }
 
     public void IncreaseDamage(float amount)

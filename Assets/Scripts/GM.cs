@@ -7,12 +7,17 @@ public class GM : MonoBehaviour
 {
     public static int numberOfEnemies = 0;
     public Text numberOfEnemiesText;
+    public static Sprite playerShip;
+    public static int playerCash;
+    public Text playerCashText;
 
     // Use this for initialization
     void Start ()
     {
-        numberOfEnemiesText = GameObject.FindGameObjectWithTag("NumberOfEnemies").GetComponent<Text>();
+        //numberOfEnemiesText = GameObject.FindGameObjectWithTag("NumberOfEnemies").GetComponent<Text>();
         UpdateEnemies();
+        //playerCashText = GameObject.FindGameObjectWithTag("PlayerCash").GetComponent<Text>();
+        UpdateCash();
     }
 	
     public void UpdateEnemies()
@@ -20,12 +25,8 @@ public class GM : MonoBehaviour
         numberOfEnemiesText.text = "" + numberOfEnemies;
     }
 
-    void OnValidate()
+    public void UpdateCash()
     {
-        if(numberOfEnemiesText == null)
-        {
-            numberOfEnemiesText = GameObject.FindGameObjectWithTag("NumberOfEnemies").GetComponent<Text>();
-        }
-        UpdateEnemies();
+        playerCashText.text = "" + playerCash;
     }
 }
