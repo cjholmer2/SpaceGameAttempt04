@@ -6,7 +6,8 @@ public class Enemy : MonoBehaviour
 {
     private SpriteRenderer sr;
     private GameObject gm;
-    public GameObject target;
+    private Rigidbody2D rb;
+    public GameObject player;
     private bool canHit = true;
     private float timer = 0;
     public float health = 25;
@@ -21,9 +22,10 @@ public class Enemy : MonoBehaviour
     void Start ()
     {
         Projectile.damage = damage;
-        target = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         sr = GetComponent<SpriteRenderer>();
         gm = GameObject.FindGameObjectWithTag("GM");
+        rb = GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
@@ -38,8 +40,8 @@ public class Enemy : MonoBehaviour
                 timer = 0;
             }
         }
-        transform.up = target.transform.position - transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        transform.up = player.transform.position - transform.position;
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 	}
 
     void OnDestroy()
@@ -59,11 +61,14 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        StartCoroutine("DamageFlash");
         health -= amount;
         if (health <= 0)
         {
             Die();
+        }
+        else
+        {
+            StartCoroutine("DamageFlash");
         }
     }
 
