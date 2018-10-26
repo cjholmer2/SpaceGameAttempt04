@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public float flashTime = 0.1f;
     public Color flashColor = Color.red;
     public int cash = 1000;
+    public float boostSpeed = 2;
+    public float boostTime = 1;
+    private bool boosting = false;
+    private float boostTimer = 0;
 
     // Use this for initialization
     void Start () 
@@ -48,6 +52,22 @@ public class PlayerController : MonoBehaviour
 		{
 			Instantiate(projectile, transform.position, transform.rotation);
 		}
+        if(Input.GetKeyDown(KeyCode.LeftAlt) && boosting == false)
+        {
+            boosting = true;
+            speed *= boostSpeed;
+        }
+
+        if(boosting == true)
+        {
+            boostTimer += Time.deltaTime;
+            if(boostTimer >= boostTime)
+            {
+                boosting = false;
+                speed /= boostSpeed;
+                boostTimer = 0;
+            }
+        }
 		
 	}
 	

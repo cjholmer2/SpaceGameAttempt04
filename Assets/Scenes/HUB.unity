@@ -944,6 +944,8 @@ MonoBehaviour:
   flashTime: 0.1
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   cash: 1000
+  boostSpeed: 2
+  boostTime: 0.5
 --- !u!4 &230126459 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4563067181993068, guid: 886ebdc445edefd40b0467eb86dc2e53,
