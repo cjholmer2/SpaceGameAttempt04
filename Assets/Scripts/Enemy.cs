@@ -44,12 +44,6 @@ public class Enemy : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
 	}
 
-    void OnDestroy()
-    {
-        GM.numberOfEnemies--;
-        gm.SendMessage("UpdateEnemies");
-    }
-
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player" && canHit == true)
@@ -74,14 +68,11 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        GM.numberOfEnemies--;
+        gm.SendMessage("UpdateEnemies");
         Destroy(gameObject);
     }
-
-    /// <summary>
-    /// A flash effect for the controller's sprite renderer, typically called by TakeDamage().
-    /// The controller's sprite renderer color will have changed back and forth between colors very quickly.
-    /// </summary>
-    /// <returns>I really wish I knew</returns>
+    
     public IEnumerator DamageFlash()
     {
         sr.color = flashColor;

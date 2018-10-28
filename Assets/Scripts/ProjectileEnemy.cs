@@ -26,5 +26,9 @@ public class ProjectileEnemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-	}
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }

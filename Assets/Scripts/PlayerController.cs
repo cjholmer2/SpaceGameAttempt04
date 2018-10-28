@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
             sr.sprite = GM.playerShip;
         }
         GM.playerCash = cash;
+        Projectile.damage = damage;
 	}
 	
 	// Update is called once per frame
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 		
+        
         if (h != 0 ^ v != 0)
         {
 			Move(h, v);
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
 		{
 			Instantiate(projectile, transform.position, transform.rotation);
 		}
-        if(Input.GetKeyDown(KeyCode.LeftAlt) && boosting == false)
+        if(Input.GetKeyDown(KeyCode.LeftShift) && boosting == false)
         {
             boosting = true;
             speed *= boostSpeed;
@@ -71,23 +73,39 @@ public class PlayerController : MonoBehaviour
 		
 	}
 	
-    /// <summary>
-    /// Moves the object depending on the passed in values.
-    /// </summary>
-    /// <param name="h">Value of horizontal input</param>
-    /// <param name="v">Value of vertical</param>
     public void Move(float h, float v)
     {
-		if(h != 0)
-		{
-			transform.rotation = Quaternion.FromToRotation(Vector3.up, (h > 0 ? Vector3.right : -Vector3.right));
-		}
-		else if(v != 0)
-		{
-			transform.rotation = Quaternion.FromToRotation(Vector3.up, (v > 0 ? Vector3.up : -Vector3.up));
-		}
+        // stafe
+        if(Input.GetKey(KeyCode.V))
+        {
+            rb.velocity = new Vector2(h * speed, v * speed);
+        }
+        // turn
+        else if(Input.GetKey(KeyCode.C))
+        {
+            if (h != 0)
+            {
+                transform.rotation = Quaternion.FromToRotation(Vector3.up, (h > 0 ? Vector3.right : -Vector3.right));
+            }
+            else if (v != 0)
+            {
+                transform.rotation = Quaternion.FromToRotation(Vector3.up, (v > 0 ? Vector3.up : -Vector3.up));
+            }
+        }
+        // turn and move forward
+        else
+        {
+            if (h != 0)
+            {
+                transform.rotation = Quaternion.FromToRotation(Vector3.up, (h > 0 ? Vector3.right : -Vector3.right));
+            }
+            else if (v != 0)
+            {
+                transform.rotation = Quaternion.FromToRotation(Vector3.up, (v > 0 ? Vector3.up : -Vector3.up));
+            }
+            rb.velocity = transform.up * speed;
+        }
 		
-		rb.velocity = transform.up * speed;
     }
 
     public void SetSprite(Sprite newSprite)

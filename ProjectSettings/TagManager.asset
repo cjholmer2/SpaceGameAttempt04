@@ -19,8 +19,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: New Layer
     uniqueID: 2655758317
+    locked: 0
+  - name: Player
+    uniqueID: 1920152383
     locked: 0

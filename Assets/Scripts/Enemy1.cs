@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1 : Enemy
+public class Enemy1 : MonoBehaviour
 {
     private SpriteRenderer sr;
     private GameObject gm;
     private Rigidbody2D rb;
+    public GameObject player;
     private bool canHit = true;
     private float timer = 0;
-    
+    public float health = 25;
+    public float damage = 10;
+    public float speed = 1;
+    public float hitDelay = 1;
+    public float flashTime = 0.1f;
+    public Color flashColor = Color.red;
+
     public float visionRadius;
     public float attackRadius;
     public GameObject projectile;
@@ -20,12 +27,11 @@ public class Enemy1 : Enemy
     // Use this for initialization
     void Start ()
     {
-        Projectile.damage = damage;
+        ProjectileEnemy.damage = damage;
         player = GameObject.FindGameObjectWithTag("Player");
         sr = GetComponent<SpriteRenderer>();
         gm = GameObject.FindGameObjectWithTag("GM");
         rb = GetComponent<Rigidbody2D>();
-
 
         initialPosition = transform.position;
     }
@@ -33,21 +39,7 @@ public class Enemy1 : Enemy
 	// Update is called once per frame
 	void Update ()
     {
-        if(canHit == false)
-        {
-            timer += Time.deltaTime;
-            if(timer > hitDelay)
-            {
-                canHit = true;
-                timer = 0;
-            }
-        }
-        
-        transform.up = player.transform.position - transform.position;
-        //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-
-
-
+        target = initialPosition;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, visionRadius, 1 << LayerMask.NameToLayer("Default"));
         Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
         Debug.DrawRay(transform.position, forward, Color.red);
@@ -59,24 +51,28 @@ public class Enemy1 : Enemy
                 target = player.transform.position;
             }
         }
-
+        
         float distance = Vector3.Distance(target, transform.position);
         Vector3 dir = (target - transform.position).normalized;
 
         if (target != initialPosition && distance < attackRadius)
         {
+            transform.up = player.transform.position - transform.position;
             if (!attacking) StartCoroutine(Attack(attackSpeed));
         }
         else
         {
             rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
+            transform.up = player.transform.position - transform.position;
         }
         
         if (target == initialPosition && distance < 0.05f)
         {
             transform.position = initialPosition;
         }
+        
         Debug.DrawLine(transform.position, target, Color.green);
+        
     }
     
     void OnDrawGizmosSelected()
@@ -107,12 +103,6 @@ public class Enemy1 : Enemy
     }
     */
 
-    void OnDestroy()
-    {
-        GM.numberOfEnemies--;
-        gm.SendMessage("UpdateEnemies");
-    }
-
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player" && canHit == true)
@@ -121,5 +111,37 @@ public class Enemy1 : Enemy
             other.gameObject.SendMessage("TakeDamage", damage);
         }
     }
-    
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+        Debug.Log(health);
+        if (health <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            StartCoroutine("DamageFlash");
+        }
+    }
+
+    public void Die()
+    {
+        GM.numberOfEnemies--;
+        gm.SendMessage("UpdateEnemies");
+        Destroy(gameObject);
+    }
+
+    public IEnumerator DamageFlash()
+    {
+        sr.color = flashColor;
+        yield return new WaitForSeconds(flashTime);
+        sr.color = Color.white;
+        yield return new WaitForSeconds(flashTime);
+        sr.color = flashColor;
+        yield return new WaitForSeconds(flashTime);
+        sr.color = Color.white;
+    }
+
 }
