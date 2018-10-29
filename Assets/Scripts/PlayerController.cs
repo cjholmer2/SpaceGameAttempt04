@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float health = 100;
     public float damage = 10;
 	public float speed = 1;
-	public GameObject projectile;
+	public GameObject[] projectile;
     public float flashTime = 0.1f;
     public Color flashColor = Color.red;
     public int cash = 1000;
@@ -52,9 +52,22 @@ public class PlayerController : MonoBehaviour
         }
 		if(Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
 		{
-			Instantiate(projectile, transform.position, transform.rotation);
+			Instantiate(projectile[0], transform.position, transform.rotation);
 		}
-        if(Input.GetKeyDown(KeyCode.LeftShift) && boosting == false)
+        else if(Input.GetKeyDown(KeyCode.Alpha1) && projectile[1] != null)
+        {
+            Instantiate(projectile[1], transform.position, transform.rotation);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && projectile[2] != null)
+        {
+            Instantiate(projectile[2], transform.position, transform.rotation);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && projectile[3] != null)
+        {
+            Instantiate(projectile[3], transform.position, transform.rotation);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && boosting == false)
         {
             boosting = true;
             speed *= boostSpeed;

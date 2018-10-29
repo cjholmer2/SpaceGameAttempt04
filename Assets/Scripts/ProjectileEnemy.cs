@@ -7,13 +7,15 @@ public class ProjectileEnemy : MonoBehaviour
 	private Rigidbody2D rb;
     public static float damage;
 	public float speed = 1;
+    public float lifetime = 3;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
 	{
 		rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * speed;
-	}
+        Destroy(gameObject, lifetime);
+    }
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -26,7 +28,7 @@ public class ProjectileEnemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else
+        else if(other.tag != "Enemy")
         {
             Destroy(gameObject);
         }
