@@ -64,7 +64,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && projectile[3] != null)
         {
-            Instantiate(projectile[3], transform.position, transform.rotation);
+            Instantiate(projectile[3], transform.position, transform.rotation, gameObject.transform);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && projectile[4] != null)
+        {
+            Instantiate(projectile[4], transform.position, transform.rotation, gameObject.transform);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && boosting == false)

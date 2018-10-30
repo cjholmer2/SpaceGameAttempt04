@@ -114,7 +114,7 @@ MonoBehaviour:
   projectiles:
   - {fileID: 1671563498821980}
   - {fileID: 1576915122637386}
-  lifetime: 3
+  lifetime: 1.7
 --- !u!114 &114502800154693604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,7 +129,7 @@ MonoBehaviour:
   projectile: {fileID: 1781728162901680, guid: 32330f4e2375df940bc98573f54d8021, type: 2}
   speed: 25
   shotInterval: 0.1
-  lifetime: 3
+  lifetime: 1.7
   distance: 3
 --- !u!114 &114881135663933858
 MonoBehaviour:
@@ -145,5 +145,5 @@ MonoBehaviour:
   projectile: {fileID: 1781728162901680, guid: 32330f4e2375df940bc98573f54d8021, type: 2}
   speed: -25
   shotInterval: 0.1
-  lifetime: 3
+  lifetime: 1.7
   distance: 3
