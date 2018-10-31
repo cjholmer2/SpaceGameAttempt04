@@ -56,11 +56,11 @@ public class PlayerController : MonoBehaviour
 		}
         else if(Input.GetKeyDown(KeyCode.Alpha1) && projectile[1] != null)
         {
-            Instantiate(projectile[1], transform.position, transform.rotation);
+            Instantiate(projectile[1], transform.position, transform.rotation, gameObject.transform);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && projectile[2] != null)
         {
-            Instantiate(projectile[2], transform.position, transform.rotation);
+            Instantiate(projectile[2], transform.position, transform.rotation, gameObject.transform);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && projectile[3] != null)
         {
