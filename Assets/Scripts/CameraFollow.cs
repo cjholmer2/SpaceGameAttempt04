@@ -30,7 +30,10 @@ public class CameraFollow : MonoBehaviour
         GetComponent<Camera>().orthographicSize = distance;
         if(setChanges == true)
         {
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+            if(targetPlayer == true)
+            {
+                target = GameObject.FindGameObjectWithTag("Player").transform;
+            }
             transform.position = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
             setChanges = false;
         }

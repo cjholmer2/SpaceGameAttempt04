@@ -11,6 +11,8 @@ TagManager:
   - Interactable
   - PlayerCash
   - FriendlyProjectile
+  - SpawnPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX
