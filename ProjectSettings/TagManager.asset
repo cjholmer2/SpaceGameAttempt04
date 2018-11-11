@@ -13,6 +13,8 @@ TagManager:
   - FriendlyProjectile
   - SpawnPoint
   - Rooms
+  - Wall
+  - Door
   layers:
   - Default
   - TransparentFX
