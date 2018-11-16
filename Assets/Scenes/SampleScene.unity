@@ -987,6 +987,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114348400706580924, guid: 886ebdc445edefd40b0467eb86dc2e53,
+        type: 2}
+      propertyPath: projectile.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4563067181993068, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1059,6 +1064,30 @@ Prefab:
       propertyPath: flashColor.b
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114348400706580924, guid: 886ebdc445edefd40b0467eb86dc2e53,
+        type: 2}
+      propertyPath: projectile.Array.data[0]
+      value: 
+      objectReference: {fileID: 1781728162901680, guid: 32330f4e2375df940bc98573f54d8021,
+        type: 2}
+    - target: {fileID: 114348400706580924, guid: 886ebdc445edefd40b0467eb86dc2e53,
+        type: 2}
+      propertyPath: projectile.Array.data[2]
+      value: 
+      objectReference: {fileID: 1458913920307950, guid: 28c0e37937fd4554996114aeb1672039,
+        type: 2}
+    - target: {fileID: 114348400706580924, guid: 886ebdc445edefd40b0467eb86dc2e53,
+        type: 2}
+      propertyPath: projectile.Array.data[1]
+      value: 
+      objectReference: {fileID: 1693163258018112, guid: c088ed47ce9dabc4f9138c317bc10f00,
+        type: 2}
+    - target: {fileID: 114348400706580924, guid: 886ebdc445edefd40b0467eb86dc2e53,
+        type: 2}
+      propertyPath: projectile.Array.data[3]
+      value: 
+      objectReference: {fileID: 1021550220385210, guid: cb2e02f0179a2b647902f7e9631e9f65,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 2}
   m_IsPrefabAsset: 0
@@ -1438,7 +1467,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: 501c30702dc4da248ac4709280b996d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 21527d1c00b1cdf43951f04be94235fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

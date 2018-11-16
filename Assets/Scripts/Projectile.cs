@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     public static float damage;
 	public float speed = 1;
     public float lifetime = 3;
+    public GameObject particles;
 
 	// Use this for initialization
 	void Start () 
@@ -21,11 +22,13 @@ public class Projectile : MonoBehaviour
 	{
 		if(other.tag == "Enemy")
         {
+            Instantiate(particles, transform.position, transform.rotation, null);
             other.gameObject.SendMessage("TakeDamage", damage);
             Destroy(gameObject);
         }
         else if(other.tag == "Obstacle")
         {
+            Instantiate(particles, transform.position, transform.rotation, null);
             Destroy(gameObject);
         }
         else if(other.tag == "FriendlyProjectile")
@@ -34,6 +37,7 @@ public class Projectile : MonoBehaviour
         }
         else if (other.tag != "Player")
         {
+            Instantiate(particles, transform.position, transform.rotation, null);
             Destroy(gameObject);
         }
 	}

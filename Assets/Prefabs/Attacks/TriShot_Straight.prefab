@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
+  lifetime: 3
 --- !u!114 &114217200937827314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
+  lifetime: 3
 --- !u!114 &114285015821382360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,6 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
+  lifetime: 3
 --- !u!114 &114656396267538816
 MonoBehaviour:
   m_ObjectHideFlags: 1
