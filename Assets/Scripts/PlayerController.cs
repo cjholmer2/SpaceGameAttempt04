@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
             sr.sprite = GM.playerShip;
         }
         GM.playerCash = cash;
-        Projectile.damage = damage;
 	}
 	
 	// Update is called once per frame

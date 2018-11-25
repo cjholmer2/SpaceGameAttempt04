@@ -22,11 +22,11 @@ public class GM : MonoBehaviour
 	
     public void UpdateEnemies()
     {
-        numberOfEnemiesText.text = "" + numberOfEnemies;
+        //numberOfEnemiesText.text = "" + numberOfEnemies;
     }
 
     public void UpdateCash()
     {
-        playerCashText.text = "" + playerCash;
+       //playerCashText.text = "" + playerCash;
     }
 }

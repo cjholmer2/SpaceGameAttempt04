@@ -16,6 +16,7 @@ TagManager:
   - Wall
   - Door
   - Item
+  - Box
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,6 @@ public class Enemy : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        Projectile.damage = damage;
         player = GameObject.FindGameObjectWithTag("Player");
         sr = GetComponent<SpriteRenderer>();
         gm = GameObject.FindGameObjectWithTag("GM");
