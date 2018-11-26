@@ -5265,6 +5265,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.size
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4433360807717646, guid: 4d390ba2b3dec3d42b7d00f67702f57a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 64
@@ -5297,6 +5302,66 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.data[0]
+      value: 
+      objectReference: {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82,
+        type: 2}
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.data[1]
+      value: 
+      objectReference: {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82,
+        type: 2}
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.data[2]
+      value: 
+      objectReference: {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82,
+        type: 2}
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.data[3]
+      value: 
+      objectReference: {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82,
+        type: 2}
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.data[4]
+      value: 
+      objectReference: {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82,
+        type: 2}
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.data[5]
+      value: 
+      objectReference: {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82,
+        type: 2}
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.data[6]
+      value: 
+      objectReference: {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82,
+        type: 2}
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.data[7]
+      value: 
+      objectReference: {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82,
+        type: 2}
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.data[8]
+      value: 
+      objectReference: {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82,
+        type: 2}
+    - target: {fileID: 114116679018179336, guid: 4d390ba2b3dec3d42b7d00f67702f57a,
+        type: 2}
+      propertyPath: loot.Array.data[9]
+      value: 
+      objectReference: {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d390ba2b3dec3d42b7d00f67702f57a, type: 2}
   m_IsPrefabAsset: 0
