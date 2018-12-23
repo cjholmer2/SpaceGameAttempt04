@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     public float flashTime = 0.1f;
     public Color flashColor = Color.red;
 
+    public bool destroysSelf = true;
+    public GameObject[] deathParticles;
+
 
     // Use this for initialization
     void Start ()
@@ -45,10 +48,14 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player" && canHit == true)
+        if(other.gameObject.CompareTag("Player") && canHit == true)
         {
             canHit = false;
             other.gameObject.SendMessage("TakeDamage", damage);
+            if(destroysSelf == true)
+            {
+                Die();
+            }
         }
     }
 
@@ -67,8 +74,13 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        GM.numberOfEnemies--;
-        gm.SendMessage("UpdateEnemies");
+        //gm.numberOfEnemies--;
+        //gm.SendMessage("UpdateEnemies");
+        Debug.Log("enemy dead");
+        for (int i = 0; i < deathParticles.Length; i++)
+        {
+            Instantiate(deathParticles[i], transform.position, transform.rotation, null);
+        }
         Destroy(gameObject);
     }
     

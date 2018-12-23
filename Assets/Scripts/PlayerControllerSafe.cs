@@ -26,7 +26,7 @@ public class PlayerControllerSafe : MonoBehaviour
         {
             sr.sprite = GM.playerShip;
         }
-        GM.playerCash = cash;
+        //GM.playerCash = cash;
     }
 	
 	// Update is called once per frame

@@ -9,6 +9,7 @@ public class Arena : MonoBehaviour
     public GameObject indicator;
     private bool inCollider = false;
     private bool arenaOpen = false;
+    public int targetScene;
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class Arena : MonoBehaviour
 
     public void EnterArena()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(targetScene);
     }
 
     public void ExitArena()
@@ -47,7 +48,7 @@ public class Arena : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
             inCollider = true;
             indicator.SetActive(true);
@@ -56,7 +57,7 @@ public class Arena : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
             indicator.SetActive(false);
             inCollider = false;

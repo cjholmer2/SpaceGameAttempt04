@@ -15,8 +15,8 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GM");
-        GM.numberOfEnemies += numberOfEnemies;
-        gm.SendMessage("UpdateEnemies");
+        //GM.numberOfEnemies += numberOfEnemies;
+        //gm.SendMessage("UpdateEnemies");
     }
 
     // Update is called once per frame

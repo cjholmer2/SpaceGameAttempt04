@@ -18,7 +18,7 @@ public class Loot : MonoBehaviour
     {
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("PlayerPerson");
         rb.AddForce(new Vector2(Random.Range(-1 * force, 1 * force), Random.Range(-1 * force, 1 * force)));
     }
 
