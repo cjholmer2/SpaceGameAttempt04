@@ -42,8 +42,11 @@ public class Enemy : MonoBehaviour
                 timer = 0;
             }
         }
-        transform.up = player.transform.position - transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        if(!Statics.playerSafe)
+        {
+            transform.up = player.transform.position - transform.position;
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
 	}
 
     void OnCollisionEnter2D(Collision2D other)

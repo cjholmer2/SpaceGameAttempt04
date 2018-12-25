@@ -56,15 +56,18 @@ public class Enemy1 : MonoBehaviour
         float distance = Vector3.Distance(target, transform.position);
         Vector3 dir = (target - transform.position).normalized;
 
-        if (target != initialPosition && distance < attackRadius)
+        if(!Statics.playerSafe)
         {
-            transform.up = player.transform.position - transform.position;
-            if (!attacking) StartCoroutine(Attack(attackSpeed));
-        }
-        else
-        {
-            rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
-            transform.up = player.transform.position - transform.position;
+            if (target != initialPosition && distance < attackRadius)
+            {
+                transform.up = player.transform.position - transform.position;
+                if (!attacking) StartCoroutine(Attack(attackSpeed));
+            }
+            else
+            {
+                rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
+                transform.up = player.transform.position - transform.position;
+            }
         }
         
         if (target == initialPosition && distance < 0.05f)

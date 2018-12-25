@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
+    public bool infiniteEnemies = false;
     public int numberOfEnemies = 5;
     public float interval = 2;
     public bool spawnActive = true;
@@ -29,7 +30,10 @@ public class EnemySpawner : MonoBehaviour
 		if(timer > interval)
         {
             Instantiate(enemy, transform.position, transform.rotation, null);
-            numberOfEnemies--;
+            if (!infiniteEnemies)
+            {
+                numberOfEnemies--;
+            }
             timer = 0;
         }
 	}
