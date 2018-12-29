@@ -142,4 +142,7 @@ MonoBehaviour:
   attackRadius: 100
   projectile: {fileID: 1781728162901680, guid: 574eba7458c6d5b43a6c0ecdcce5b285, type: 3}
   attackSpeed: 2
-  deathParticles: []
+  deathParticles:
+  - {fileID: 8706593216225555289, guid: edf9732a8ce626749a452f7b9ba2a440, type: 3}
+  - {fileID: 8797111725760179287, guid: 673dc17a8ace7184fb49358fe93f6337, type: 3}
+  - {fileID: 1462730825752310726, guid: bd10f9a79a9dc4b4abfd5e213a253c73, type: 3}

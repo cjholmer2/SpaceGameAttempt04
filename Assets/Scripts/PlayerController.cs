@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float boostTime = 1;
     private bool boosting = false;
     private float boostTimer = 0;
+    public GameObject deathParticles;
 
     // Use this for initialization
     void Start () 
@@ -138,17 +139,22 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        StartCoroutine("DamageFlash");
         health -= amount;
         if(health <= 0)
         {
             Die();
+        }
+        else
+        {
+            StartCoroutine("DamageFlash");
         }
     }
 
     public void Die()
     {
         Debug.Log("nothin");
+        sr.color = new Color(0, 0, 0, 0);
+        Instantiate(deathParticles, transform.position, transform.rotation, null);
     }
 
 

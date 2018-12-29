@@ -17,6 +17,7 @@ public class PlayerController1 : MonoBehaviour
     public float boostTime = 1;
     private bool boosting = false;
     private float boostTimer = 0;
+    public GameObject deathParticles;
 
     Camera cam;
 
@@ -39,13 +40,9 @@ public class PlayerController1 : MonoBehaviour
 	{
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        if (h != 0 ^ v != 0)
+        if (h != 0 || v != 0)
         {
             Move(h, v);
-        }
-        else if (h != 0 && v != 0)
-        {
-            //do nothing (prevents diagonal movement, moving the player in the current direction)
         }
         else//this might not be triggered
         {
@@ -131,6 +128,8 @@ public class PlayerController1 : MonoBehaviour
     public void Die()
     {
         Debug.Log("nothin");
+        sr.color = new Color(0,0,0,0);
+        Instantiate(deathParticles, transform.position, transform.rotation, null);
     }
 
 

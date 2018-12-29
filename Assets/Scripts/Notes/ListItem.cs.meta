@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 65199d7a2c015df42a5a02bac23abda0
+guid: b4f8e91dc044d2743996c3ad77d97f74
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - clip: {fileID: 8300000, guid: 0cd7d8e22f8a2534da83f0e0dd26e5ea, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

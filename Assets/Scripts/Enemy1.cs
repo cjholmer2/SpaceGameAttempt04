@@ -7,6 +7,8 @@ public class Enemy1 : MonoBehaviour
     private SpriteRenderer sr;
     private GameObject gm;
     private Rigidbody2D rb;
+
+    public string targetTag;
     public GameObject player;
     private bool canHit = true;
     private float timer = 0;
@@ -14,6 +16,7 @@ public class Enemy1 : MonoBehaviour
     public float damage = 10;
     public float speed = 1;
     public float hitDelay = 1;
+
     public float flashTime = 0.1f;
     public Color flashColor = Color.red;
 
@@ -24,12 +27,14 @@ public class Enemy1 : MonoBehaviour
     bool attacking;
     Vector3 initialPosition, target;
 
-    public GameObject[] deathParticles;
+    bool targetFound = false;
+
+    public GameObject deathParticles;
 
     // Use this for initialization
     void Start ()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag(targetTag);
         sr = GetComponent<SpriteRenderer>();
         gm = GameObject.FindGameObjectWithTag("GM");
         rb = GetComponent<Rigidbody2D>();
@@ -40,16 +45,17 @@ public class Enemy1 : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        target = initialPosition;
+        if (!targetFound) target = initialPosition; 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, visionRadius, 1 << LayerMask.NameToLayer("Default"));
         Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
         Debug.DrawRay(transform.position, forward, Color.red);
 
         if (hit.collider != null)
         {
-            if (hit.collider.CompareTag("Player"))
+            if (hit.collider.CompareTag(targetTag))
             {
                 target = player.transform.position;
+                targetFound = true;
             }
         }
         
@@ -74,6 +80,8 @@ public class Enemy1 : MonoBehaviour
         {
             transform.position = initialPosition;
         }
+
+        if (distance > visionRadius / 2) targetFound = false;
         
         Debug.DrawLine(transform.position, target, Color.green);
         
@@ -109,7 +117,7 @@ public class Enemy1 : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Player") && canHit == true)
+        if(other.gameObject.CompareTag(targetTag) && canHit == true)
         {
             canHit = false;
             other.gameObject.SendMessage("TakeDamage", damage);
@@ -126,7 +134,7 @@ public class Enemy1 : MonoBehaviour
         }
         else
         {
-            StartCoroutine("DamageFlash");
+            StartCoroutine(DamageFlash());
         }
     }
 
@@ -135,10 +143,7 @@ public class Enemy1 : MonoBehaviour
         //GM.numberOfEnemies--;
         //gm.SendMessage("UpdateEnemies");
         Debug.Log("enemy dead");
-        for(int i = 0; i < deathParticles.Length; i++)
-        {
-            Instantiate(deathParticles[i], transform.position, transform.rotation, null);
-        }
+        Instantiate(deathParticles, transform.position, transform.rotation, null);
         Destroy(gameObject);
     }
 

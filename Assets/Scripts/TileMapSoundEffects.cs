@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class TileMapSoundEffects : MonoBehaviour
 {
+    public AudioClip clip;
     AudioSource sound;
 
     private void OnTransformParentChanged()
@@ -18,6 +20,7 @@ public class TileMapSoundEffects : MonoBehaviour
         if(sound == null)
         {
             sound = GetComponent<AudioSource>();
+            sound.clip = clip;
         }
         sound.Play();
     }

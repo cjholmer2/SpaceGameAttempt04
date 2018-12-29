@@ -19,16 +19,16 @@ public class ProjectileEnemy : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.tag == "Player")
+		if(other.CompareTag("Player") || other.CompareTag("Generator"))
         {
             other.gameObject.SendMessage("TakeDamage", damage);
             Destroy(gameObject);
         }
-        else if(other.tag == "Obstacle")
+        else if(other.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
         }
-        else if(other.tag != "Enemy")
+        else if(!other.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }

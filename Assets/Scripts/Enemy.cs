@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer sr;
     private GameObject gm;
     private Rigidbody2D rb;
+
+    public string targetTag;
     public GameObject player;
     private bool canHit = true;
     private float timer = 0;
@@ -14,17 +16,18 @@ public class Enemy : MonoBehaviour
     public float damage = 10;
     public float speed = 1;
     public float hitDelay = 1;
+
     public float flashTime = 0.1f;
     public Color flashColor = Color.red;
 
     public bool destroysSelf = true;
-    public GameObject[] deathParticles;
+    public GameObject deathParticles;
 
 
     // Use this for initialization
     void Start ()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag(targetTag);
         sr = GetComponent<SpriteRenderer>();
         gm = GameObject.FindGameObjectWithTag("GM");
         rb = GetComponent<Rigidbody2D>();
@@ -51,7 +54,7 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Player") && canHit == true)
+        if(other.gameObject.CompareTag(targetTag) && canHit == true)
         {
             canHit = false;
             other.gameObject.SendMessage("TakeDamage", damage);
@@ -71,7 +74,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            StartCoroutine("DamageFlash");
+            StartCoroutine(DamageFlash());
         }
     }
 
@@ -80,10 +83,7 @@ public class Enemy : MonoBehaviour
         //gm.numberOfEnemies--;
         //gm.SendMessage("UpdateEnemies");
         Debug.Log("enemy dead");
-        for (int i = 0; i < deathParticles.Length; i++)
-        {
-            Instantiate(deathParticles[i], transform.position, transform.rotation, null);
-        }
+        Instantiate(deathParticles, transform.position, transform.rotation, null);
         Destroy(gameObject);
     }
     

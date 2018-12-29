@@ -22,6 +22,7 @@ TagManager:
   - PlayerPerson
   - CameraPerson
   - Camera
+  - Generator
   layers:
   - Default
   - TransparentFX
