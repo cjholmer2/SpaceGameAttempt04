@@ -12,7 +12,10 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     private bool canHit = true;
     private float timer = 0;
+    public float maxHealth = 25;
     public float health = 25;
+    public float maxShield = 0;
+    public float shieldHealth = 0;
     public float damage = 10;
     public float speed = 1;
     public float hitDelay = 1;
@@ -23,6 +26,7 @@ public class Enemy : MonoBehaviour
     public bool destroysSelf = true;
     public GameObject deathParticles;
 
+    Camera cam;
 
     // Use this for initialization
     void Start ()
@@ -31,6 +35,7 @@ public class Enemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         gm = GameObject.FindGameObjectWithTag("GM");
         rb = GetComponent<Rigidbody2D>();
+        cam = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>();
     }
 	
 	// Update is called once per frame
@@ -96,5 +101,19 @@ public class Enemy : MonoBehaviour
         sr.color = flashColor;
         yield return new WaitForSeconds(flashTime);
         sr.color = Color.white;
+    }
+
+    void OnGUI()
+    {
+        Vector2 pos = cam.WorldToScreenPoint(transform.position);
+
+        if (shieldHealth > 0)
+        {
+            GUI.DrawTexture(new Rect(pos.x - shieldHealth / 2, Screen.height - pos.y + 60, shieldHealth, 12), Styles.boxTexture, ScaleMode.StretchToFill, true, 0, Styles.shieldColor, 0, 0);
+        }
+        if (health > 0)
+        {
+            GUI.DrawTexture(new Rect((pos.x - health / 2) + 2, Screen.height - pos.y + 62, health - 4, 8), Styles.boxTexture, ScaleMode.StretchToFill, true, 0, Styles.healthColor, 0, 0);
+        }
     }
 }

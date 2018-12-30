@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 61206355675310124}
   - component: {fileID: 7508800364355934112}
   - component: {fileID: 50868798216496632}
-  - component: {fileID: 114348400706580924}
+  - component: {fileID: 978261860}
   m_Layer: 0
   m_Name: Ship10
   m_TagString: Player
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &114348400706580924
+--- !u!114 &978261860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1321416849193542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62ced57a9c34c8e4db9f26246f51537a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e8d1160449d9f04298a047130e9c2e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
@@ -168,7 +168,7 @@ MonoBehaviour:
   - {fileID: 1021550220385210, guid: cb2e02f0179a2b647902f7e9631e9f65, type: 3}
   - {fileID: 1693163258018112, guid: c088ed47ce9dabc4f9138c317bc10f00, type: 3}
   flashTime: 0.1
-  flashColor: {r: 1, g: 0.5, b: 0.5, a: 1}
+  flashColor: {r: 1, g: 0.5019608, b: 0.5019608, a: 1}
   cash: 1000
   boostSpeed: 2
   boostTime: 1

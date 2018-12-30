@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.CompareTag("Enemy") || other.CompareTag("Generator"))
+		if(other.CompareTag("Enemy"))
         {
             Instantiate(particles, transform.position, transform.rotation, null);
             other.gameObject.SendMessage("TakeDamage", damage);
@@ -43,6 +43,15 @@ public class Projectile : MonoBehaviour
         else if(other.CompareTag("PlayerPerson"))
         {
             // do nothing, ignore layer
+        }
+        else if(other.CompareTag("Generator"))
+        {
+            Instantiate(particles, transform.position, transform.rotation, null);
+            if(Statics.friendlyFire)
+            {
+                other.gameObject.SendMessage("TakeDamage", damage);
+            }
+            Destroy(gameObject);
         }
         else if (!other.CompareTag("Player"))
         {

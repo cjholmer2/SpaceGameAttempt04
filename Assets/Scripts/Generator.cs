@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
-    public float maxHP = 100;
-    public float hp = 100;
+    public float maxHealth = 100;
+    public float health = 100;
     public float generatorRadius;
     public float maxShield = 100;
     public float shieldHealth = 100;
@@ -25,6 +25,8 @@ public class Generator : MonoBehaviour
 
     public GameObject deathParticles;
 
+    Camera cam;
+
     void Start()
     {
         cc = GetComponent<CircleCollider2D>();
@@ -33,6 +35,7 @@ public class Generator : MonoBehaviour
         shieldsr = shield.GetComponent<SpriteRenderer>();
         originalColor = sr.color;
         originalShieldColor = shieldsr.color;
+        cam = GameObject.FindGameObjectWithTag("Camera").GetComponent<Camera>();
     }
 
     void TakeDamage(float amount)
@@ -53,10 +56,11 @@ public class Generator : MonoBehaviour
         }
         else
         {
-            hp -= amount;
-            if(hp <= 0)
+            health -= amount;
+            if(health <= 0)
             {
                 Die();
+                health = 0;
             }
             else
             {
@@ -101,5 +105,19 @@ public class Generator : MonoBehaviour
         renderer.color = flashColor;
         yield return new WaitForSeconds(flashTime);
         renderer.color = (shieldActive ? originalShieldColor : originalColor);
+    }
+    
+    void OnGUI()
+    {
+        Vector2 pos = cam.WorldToScreenPoint(transform.position);
+        
+        if(shieldHealth > 0)
+        {
+            GUI.DrawTexture(new Rect(pos.x - shieldHealth / 2, Screen.height - pos.y + 60, shieldHealth, 12), Styles.boxTexture, ScaleMode.StretchToFill, true, 0, Styles.shieldColor, 0, 0);
+        }
+        if(health > 0)
+        {
+            GUI.DrawTexture(new Rect((pos.x - health / 2) + 2, Screen.height - pos.y + 62, health - 4, 8), Styles.boxTexture, ScaleMode.StretchToFill, true, 0, Styles.healthColor, 0, 0);
+        }
     }
 }

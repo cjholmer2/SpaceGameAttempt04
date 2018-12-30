@@ -8,12 +8,6 @@ public class TileMapSoundEffects : MonoBehaviour
     public AudioClip clip;
     AudioSource sound;
 
-    private void OnTransformParentChanged()
-    {
-        Debug.Log("plop2");
-        sound.Play();
-    }
-
     private void OnValidate()
     {
         Debug.Log("plop3");

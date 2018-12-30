@@ -50,35 +50,37 @@ public class PlayerController1 : MonoBehaviour
         }
         transform.up = new Vector3(cam.ScreenToWorldPoint(Input.mousePosition).x, cam.ScreenToWorldPoint(Input.mousePosition).y) - transform.position;
 
+        if(Statics.playerCanFire)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
+            {
+                Instantiate(projectile[0], transform.position, transform.rotation);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha1) && projectile[1] != null)
+            {
+                Instantiate(projectile[1], transform.position, transform.rotation, gameObject.transform);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && projectile[2] != null)
+            {
+                Instantiate(projectile[2], transform.position, transform.rotation, gameObject.transform);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && projectile[3] != null)
+            {
+                Instantiate(projectile[3], transform.position, transform.rotation, gameObject.transform);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4) && projectile[4] != null)
+            {
+                Instantiate(projectile[4], transform.position, transform.rotation, gameObject.transform);
+            }
+        }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
-		{
-			Instantiate(projectile[0], transform.position, transform.rotation);
-		}
-        else if(Input.GetKeyDown(KeyCode.Alpha1) && projectile[1] != null)
-        {
-            Instantiate(projectile[1], transform.position, transform.rotation, gameObject.transform);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && projectile[2] != null)
-        {
-            Instantiate(projectile[2], transform.position, transform.rotation, gameObject.transform);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && projectile[3] != null)
-        {
-            Instantiate(projectile[3], transform.position, transform.rotation, gameObject.transform);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && projectile[4] != null)
-        {
-            Instantiate(projectile[4], transform.position, transform.rotation, gameObject.transform);
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && boosting == false)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !boosting)
         {
             boosting = true;
             speed *= boostSpeed;
         }
 
-        if(boosting == true)
+        if(boosting)
         {
             boostTimer += Time.deltaTime;
             if(boostTimer >= boostTime)

@@ -12,6 +12,29 @@ public class ListItem : MonoBehaviour
         public bool complete;
     }
 
-    public TodoList[] items;
+    public List<TodoList> items;
+    public bool addItem = false;
+    public bool removeCompleted = false;
+
+    void OnValidate()
+    {
+        if(addItem)
+        {
+            items.Add(new TodoList());
+            addItem = false;
+        }
+
+        if(removeCompleted)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].complete)
+                {
+                    items.RemoveAt(i);
+                }
+            }
+            removeCompleted = false;
+        }
+    }
 }
 
