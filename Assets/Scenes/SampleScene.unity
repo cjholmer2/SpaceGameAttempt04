@@ -414,7 +414,7 @@ Transform:
   - {fileID: 1805324998}
   - {fileID: 1300194611}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &208825347
 GameObject:
@@ -1042,7 +1042,7 @@ Transform:
   - {fileID: 75577789}
   - {fileID: 1750524887}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &346773636
 GameObject:
@@ -1378,6 +1378,23 @@ MonoBehaviour:
     give enemies cool attacks
 
 
+    need ui indication of current weapon
+
+
+    ctrl+scroll to zoom in/out
+
+
+    automatic shooting
+
+
+    shotgun needs random spread
+
+
+    need weapon interfaces and stuff
+
+
+    if I was a good programmer..
+
 
     remember fable (colleseum)
 
@@ -1448,7 +1465,7 @@ MonoBehaviour:
 
     - what does a space person do for a quest? probably save the universe
 
-    - the quest is to search for a quest!
+    - the quest is to search for a quest
 
 
 
@@ -2098,7 +2115,7 @@ Transform:
   - {fileID: 1830489055}
   - {fileID: 370336154}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &609573998
 GameObject:
@@ -2427,7 +2444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &736715756
 GameObject:
@@ -2769,7 +2786,7 @@ Transform:
   - {fileID: 794195652}
   - {fileID: 494577088}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &840286663
 GameObject:
@@ -3389,7 +3406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4563067181993068, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4563067181993068, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3403,6 +3420,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 978261860, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
+      propertyPath: weapons.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 978261860, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
+      propertyPath: projectile.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 978261860, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1781728162901680, guid: 32330f4e2375df940bc98573f54d8021,
+        type: 3}
+    - target: {fileID: 978261860, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1458913920307950, guid: 28c0e37937fd4554996114aeb1672039,
+        type: 3}
+    - target: {fileID: 978261860, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
+      propertyPath: weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1506032203234354, guid: 75cb82386660f7b4ea1d7b9489315bd4,
+        type: 3}
+    - target: {fileID: 978261860, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
+      propertyPath: weapons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1021550220385210, guid: cb2e02f0179a2b647902f7e9631e9f65,
+        type: 3}
+    - target: {fileID: 978261860, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
+      propertyPath: weapons.Array.data[4]
+      value: 
+      objectReference: {fileID: 1693163258018112, guid: c088ed47ce9dabc4f9138c317bc10f00,
+        type: 3}
+    - target: {fileID: 978261860, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
+      propertyPath: weapons.Array.data[5]
+      value: 
+      objectReference: {fileID: 1696178702562942, guid: 0f25ee1241be2b54aa418ffbcd67d11b,
+        type: 3}
+    - target: {fileID: 978261860, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
+      propertyPath: projectile.Array.data[5]
+      value: 
+      objectReference: {fileID: 1696178702562942, guid: 0dc3e15802e95ef419fba38560674708,
+        type: 3}
+    - target: {fileID: 978261860, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
+      propertyPath: weapons.Array.data[6]
+      value: 
+      objectReference: {fileID: 1696178702562942, guid: 0dc3e15802e95ef419fba38560674708,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 886ebdc445edefd40b0467eb86dc2e53, type: 3}
 --- !u!4 &978261859 stripped
@@ -4067,7 +4132,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300194610
 GameObject:
@@ -5028,7 +5093,7 @@ Transform:
   m_LocalScale: {x: 0.41819698, y: 0.53, z: 0.37644947}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1643608837
 GameObject:
@@ -5432,7 +5497,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1750524886
 PrefabInstance:
@@ -6409,7 +6474,7 @@ Transform:
   - {fileID: 687560428}
   - {fileID: 1739237023}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895691597
 GameObject:
@@ -6531,7 +6596,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1966884046
 GameObject:
@@ -7015,7 +7080,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!58 &2119685129
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7095,7 +7160,7 @@ Transform:
   - {fileID: 1591173642}
   - {fileID: 1501463912}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2127121022
 GameObject:

@@ -19,6 +19,11 @@ public class PlayerController1 : MonoBehaviour
     private float boostTimer = 0;
     public GameObject deathParticles;
 
+    public List<GameObject> weapons;
+    GameObject lastWeapon;
+    public GameObject currentWeapon;
+    int weaponIndex = 0;
+
     Camera cam;
 
     // Use this for initialization
@@ -32,7 +37,8 @@ public class PlayerController1 : MonoBehaviour
             sr.sprite = GM.playerShip;
         }
         //GM.playerCash = cash;
-        Projectile.damage = damage;
+        //Projectile.damage = damage;
+        currentWeapon = weapons[weaponIndex];
 	}
 	
 	// Update is called once per frame
@@ -40,6 +46,8 @@ public class PlayerController1 : MonoBehaviour
 	{
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+        float s = Input.GetAxis("Mouse ScrollWheel");
+
         if (h != 0 || v != 0)
         {
             Move(h, v);
@@ -50,27 +58,21 @@ public class PlayerController1 : MonoBehaviour
         }
         transform.up = new Vector3(cam.ScreenToWorldPoint(Input.mousePosition).x, cam.ScreenToWorldPoint(Input.mousePosition).y) - transform.position;
 
-        if(Statics.playerCanFire)
+        if(s != 0)
+        {
+            weaponIndex = weaponIndex + (s > 0 ? 1 : -1);
+            if(weaponIndex < 0)
+            {
+                weaponIndex += weapons.Count;
+            }
+            weaponIndex %= weapons.Count;
+        }
+
+        if (Statics.playerCanFire)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
             {
-                Instantiate(projectile[0], transform.position, transform.rotation);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha1) && projectile[1] != null)
-            {
-                Instantiate(projectile[1], transform.position, transform.rotation, gameObject.transform);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha2) && projectile[2] != null)
-            {
-                Instantiate(projectile[2], transform.position, transform.rotation, gameObject.transform);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha3) && projectile[3] != null)
-            {
-                Instantiate(projectile[3], transform.position, transform.rotation, gameObject.transform);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha4) && projectile[4] != null)
-            {
-                Instantiate(projectile[4], transform.position, transform.rotation, gameObject.transform);
+                Instantiate(weapons[weaponIndex], transform.position, transform.rotation);
             }
         }
 
@@ -103,6 +105,15 @@ public class PlayerController1 : MonoBehaviour
         {
             rb.velocity = rb.GetRelativeVector(new Vector2(h * speed, v * speed));
         }
+    }
+
+    public void ScrollWeapon()
+    {
+        //weaponIndex %= weapons.Count;
+        //lastWeapon = currentWeapon;
+        //lastWeapon.SetActive(false);
+        //currentWeapon = weapons[weaponIndex];
+        //currentWeapon.SetActive(true);
     }
     
 

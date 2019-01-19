@@ -5,16 +5,17 @@ using UnityEngine;
 public class Projectile : MonoBehaviour 
 {
 	private Rigidbody2D rb;
-    public static float damage;
-	public float speed = 1;
+    public float damage;
+	public float velocity = 1;
     public float lifetime = 3;
+    public bool friendly;
     public GameObject particles;
 
 	// Use this for initialization
 	void Start () 
 	{
 		rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.up * speed;
+        rb.velocity = transform.up * velocity;
         Destroy(gameObject, lifetime);
 	}
 
@@ -59,4 +60,12 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 	}
+
+    public Projectile(float dmg, float vel, float life, bool friend)
+    {
+        damage = dmg;
+        velocity = vel;
+        lifetime = life;
+        friendly = friend;
+    }
 }
