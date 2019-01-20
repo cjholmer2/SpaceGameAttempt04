@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
     public bool destroysSelf = true;
     public GameObject deathParticles;
 
+    public List<GameObject> loot;
+
     Camera cam;
 
     // Use this for initialization
@@ -89,6 +91,10 @@ public class Enemy : MonoBehaviour
         //gm.SendMessage("UpdateEnemies");
         Debug.Log("enemy dead");
         Instantiate(deathParticles, transform.position, transform.rotation, null);
+        for (int i = 0; i < loot.Count; i++)
+        {
+            Instantiate(loot[i], transform.position, transform.rotation, null);
+        }
         Destroy(gameObject);
     }
     

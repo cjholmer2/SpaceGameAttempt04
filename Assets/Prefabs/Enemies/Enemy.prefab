@@ -117,7 +117,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTag: Generator
   player: {fileID: 0}
+  maxHealth: 25
   health: 25
+  maxShield: 0
+  shieldHealth: 0
   damage: 10
   speed: 25
   hitDelay: 1
@@ -126,6 +129,10 @@ MonoBehaviour:
   destroysSelf: 1
   deathParticles: {fileID: 4306253340373207277, guid: cb68f1f27410688449a6103898d54b3a,
     type: 3}
+  loot:
+  - {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82, type: 3}
+  - {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82, type: 3}
+  - {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82, type: 3}
 --- !u!58 &58627116701184098
 CircleCollider2D:
   m_ObjectHideFlags: 0

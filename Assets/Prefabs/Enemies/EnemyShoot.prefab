@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8c7bd6960cdfd45837d325ece5975f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTag: 
   player: {fileID: 0}
   health: 25
   damage: 10
@@ -142,7 +143,10 @@ MonoBehaviour:
   attackRadius: 100
   projectile: {fileID: 1781728162901680, guid: 574eba7458c6d5b43a6c0ecdcce5b285, type: 3}
   attackSpeed: 2
-  deathParticles:
-  - {fileID: 8706593216225555289, guid: edf9732a8ce626749a452f7b9ba2a440, type: 3}
-  - {fileID: 8797111725760179287, guid: 673dc17a8ace7184fb49358fe93f6337, type: 3}
-  - {fileID: 1462730825752310726, guid: bd10f9a79a9dc4b4abfd5e213a253c73, type: 3}
+  deathParticles: {fileID: 0}
+  loot:
+  - {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82, type: 3}
+  - {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82, type: 3}
+  - {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82, type: 3}
+  - {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82, type: 3}
+  - {fileID: 1067763431980522, guid: 3f3c228adddb8884b87eb0e87f83bb82, type: 3}

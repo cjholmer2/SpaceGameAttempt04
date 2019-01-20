@@ -12,7 +12,7 @@ public class PlayerController1 : MonoBehaviour
 	public GameObject[] projectile;
     public float flashTime = 0.1f;
     public Color flashColor = Color.red;
-    public int cash = 1000;
+    public int cash = 0;
     public float boostSpeed = 2;
     public float boostTime = 1;
     private bool boosting = false;
@@ -66,13 +66,14 @@ public class PlayerController1 : MonoBehaviour
                 weaponIndex += weapons.Count;
             }
             weaponIndex %= weapons.Count;
+            currentWeapon = weapons[weaponIndex];
         }
 
         if (Statics.playerCanFire)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Fire1"))
             {
-                Instantiate(weapons[weaponIndex], transform.position, transform.rotation);
+                Instantiate(weapons[weaponIndex], transform.position, transform.rotation, transform);
             }
         }
 
@@ -160,5 +161,22 @@ public class PlayerController1 : MonoBehaviour
         sr.color = flashColor;
         yield return new WaitForSeconds(flashTime);
         sr.color = Color.white;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            Destroy(other.gameObject);
+            cash++;
+        }
+    }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Item"))
+        {
+            Destroy(other.gameObject);
+            cash++;
+        }
     }
 }

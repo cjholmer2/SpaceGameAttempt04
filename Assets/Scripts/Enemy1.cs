@@ -31,6 +31,8 @@ public class Enemy1 : MonoBehaviour
 
     public GameObject deathParticles;
 
+    public List<GameObject> loot;
+
     // Use this for initialization
     void Start ()
     {
@@ -144,6 +146,10 @@ public class Enemy1 : MonoBehaviour
         //gm.SendMessage("UpdateEnemies");
         Debug.Log("enemy dead");
         Instantiate(deathParticles, transform.position, transform.rotation, null);
+        for (int i = 0; i < loot.Count; i++)
+        {
+            Instantiate(loot[i], transform.position, transform.rotation, null);
+        }
         Destroy(gameObject);
     }
 

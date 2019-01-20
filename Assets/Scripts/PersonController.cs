@@ -79,7 +79,7 @@ public class PersonController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Item") == true)
+        if(other.CompareTag("Item"))
         {
             Destroy(other.gameObject);
             cash++;
@@ -87,7 +87,7 @@ public class PersonController : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Item") == true)
+        if (other.gameObject.CompareTag("Item"))
         {
             Destroy(other.gameObject);
             cash++;

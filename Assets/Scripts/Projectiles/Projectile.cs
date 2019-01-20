@@ -45,6 +45,10 @@ public class Projectile : MonoBehaviour
         {
             // do nothing, ignore layer
         }
+        else if(other.CompareTag("Item"))
+        {
+            // do nothing, ignore layer
+        }
         else if(other.CompareTag("Generator"))
         {
             Instantiate(particles, transform.position, transform.rotation, null);
