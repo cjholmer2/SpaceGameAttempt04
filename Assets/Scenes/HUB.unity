@@ -164,7 +164,12 @@ MonoBehaviour:
   target: {fileID: 230126459}
   targetPlayer: 1
   distance: 110
+  followSpeed: 0.1
   setChanges: 0
+  testShakeMagnitude: 0
+  testShakes: 0
+  testShakeSpeed: 0
+  testShake: 0
 --- !u!81 &11184350
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7865,7 +7870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arenaCanvas: {fileID: 414175652}
   indicator: {fileID: 835764182}
-  targetScene: 0
+  targetScene: 3
 --- !u!212 &1486721498
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -1053,7 +1053,12 @@ MonoBehaviour:
   target: {fileID: 1838579798}
   targetPlayer: 0
   distance: 110
+  followSpeed: 0.1
   setChanges: 0
+  testShakeMagnitude: 0
+  testShakes: 0
+  testShakeSpeed: 0
+  testShake: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3489,7 +3494,12 @@ MonoBehaviour:
   target: {fileID: 2056497407}
   targetPlayer: 0
   distance: 50
+  followSpeed: 0.1
   setChanges: 0
+  testShakeMagnitude: 0
+  testShakes: 0
+  testShakeSpeed: 0
+  testShake: 0
 --- !u!81 &1779668679
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3637,6 +3647,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4653382923106948256, guid: 784e9e6c4a9d5384187bb35e28f06ed6,
         type: 3}
+    - target: {fileID: 114242139333466538, guid: bedf5b138617ba64894b2f5705db06a1,
+        type: 3}
+      propertyPath: targetTag
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 212441324127775474, guid: bedf5b138617ba64894b2f5705db06a1,
         type: 3}
       propertyPath: m_Sprite

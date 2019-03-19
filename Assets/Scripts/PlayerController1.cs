@@ -38,7 +38,10 @@ public class PlayerController1 : MonoBehaviour
         }
         //GM.playerCash = cash;
         //Projectile.damage = damage;
-        currentWeapon = weapons[weaponIndex];
+        if(weapons.Count > 0)
+        {
+            currentWeapon = weapons[weaponIndex];
+        }
 	}
 	
 	// Update is called once per frame
